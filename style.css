@@ -1,0 +1,544 @@
+/* =========================================================
+   VD Azur Conseil — общий файл стилей для ВСЕХ страниц.
+   Каждая страница подключает его строкой:
+   <link rel="stylesheet" href="style.css">
+   Поменяли что-то здесь — изменилось на всём сайте.
+   Версия: компактная (меньше пустого пространства).
+   ========================================================= */
+
+/* ---------- 1. ЦВЕТА И ШРИФТЫ (меняйте здесь) ----------
+   :root — место для "переменных". Пишем цвет один раз,
+   а дальше используем его как var(--sea).               */
+:root {
+  --sea: #0b4f74;        /* глубокий морской синий — шапка, заголовки */
+  --azure: #1c86b8;      /* лазурный — ссылки, акценты */
+  --sun: #e2a73a;        /* солнечный охристый — главные кнопки */
+  --sky: #eef6fa;        /* очень светлый голубой — фон блоков */
+  --white: #ffffff;
+  --text: #22323d;       /* основной цвет текста */
+  --muted: #5b6d78;      /* второстепенный текст */
+
+  --font-title: "Prata", Georgia, serif;          /* шрифт заголовков */
+  --font-text: "Manrope", Arial, sans-serif;      /* шрифт текста */
+}
+
+/* ---------- 2. БАЗОВЫЕ НАСТРОЙКИ ---------- */
+* {
+  box-sizing: border-box;  /* размеры блоков считаются вместе с отступами */
+}
+
+body {
+  margin: 0;                       /* убираем отступ браузера по краям */
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.4;                /* расстояние между строками (было 1.6) */
+  color: var(--text);
+  background: var(--white);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  color: var(--sea);
+  line-height: 1.15;
+  margin: 0 0 8px;                 /* убираем большие отступы браузера */
+}
+
+p {
+  margin: 0 0 10px;                /* абзацы ближе друг к другу */
+}
+
+ul, ol {
+  margin: 0 0 10px;
+}
+
+a {
+  color: var(--azure);
+}
+
+img {
+  max-width: 100%;   /* картинки не вылезают за экран телефона */
+}
+
+/* Обёртка: ограничивает ширину контента и ставит его по центру */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;      /* auto слева и справа = по центру */
+  padding: 0 16px;
+}
+
+/* ---------- 3. ШАПКА И МЕНЮ ---------- */
+.header {
+  background: var(--sea);
+}
+
+/* display: flex ставит элементы в ряд.
+   justify-content: space-between разносит их по краям.
+   flex-wrap: wrap разрешает переносить на новую строку на телефоне. */
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 24px;
+  color: var(--white);
+  text-decoration: none;   /* убираем подчёркивание ссылки */
+}
+
+.logo span {
+  color: var(--sun);       /* "VD" другим цветом */
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;        /* убираем точки у списка */
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 6px 12px;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.15);  /* подсветка при наведении */
+}
+
+/* Пункт меню текущей страницы (класс active ставим вручную) */
+.menu a.active {
+  background: var(--white);
+  color: var(--sea);
+}
+
+/* ---------- 4. ГЛАВНЫЙ ЭКРАН (hero) ---------- */
+.hero {
+  background: var(--sea);
+  color: var(--white);
+  padding: 36px 0 0;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(32px, 5vw, 54px);  /* размер подстраивается под экран */
+  max-width: 800px;
+  margin: 0 0 12px;
+}
+
+.hero p {
+  font-size: 19px;
+  max-width: 620px;
+  opacity: 0.9;
+}
+
+/* Волна под главным экраном — картинка SVG прямо в HTML */
+.wave {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin-top: 24px;
+}
+
+/* Заголовок внутренних страниц (короче, чем на главной) */
+.page-title {
+  background: var(--sea);
+  color: var(--white);
+  padding: 24px 0 0;
+}
+
+.page-title h1 {
+  color: var(--white);
+  font-size: clamp(30px, 4vw, 44px);
+  margin: 0 0 6px;
+}
+
+.page-title p {
+  max-width: 640px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* ---------- 5. КНОПКИ ---------- */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-main {
+  background: var(--sun);
+  color: var(--sea);
+}
+
+.btn-main:hover {
+  background: #f0b94f;
+}
+
+.btn-light {
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+.btn-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- 6. СЕКЦИИ ---------- */
+.section {
+  padding: 32px 0;
+}
+
+.section-sky {
+  background: var(--sky);   /* секция с голубым фоном */
+}
+
+.section h2 {
+  font-size: clamp(26px, 3.5vw, 36px);
+  margin: 0 0 12px;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 0 18px;
+}
+
+/* ---------- 7. СЕТКА КАРТОЧЕК ----------
+   display: grid раскладывает карточки по колонкам.
+   auto-fit + minmax: колонок столько, сколько влезает
+   (на компьютере 3, на телефоне 1).                     */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 18px;
+  border-top: 4px solid var(--azure);   /* цветная полоска сверху */
+}
+
+.card h3 {
+  font-size: 22px;
+  margin: 0 0 6px;
+}
+
+.card p {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.card p:last-child {
+  margin-bottom: 0;         /* без лишнего отступа внизу карточки */
+}
+
+.card a {
+  font-weight: 700;
+}
+
+/* ---------- 8. ШАГИ "КАК МЫ РАБОТАЕМ" ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: step;           /* запускаем счётчик для номеров */
+}
+
+.steps li {
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);        /* выводим номер шага */
+  display: block;
+  font-family: var(--font-title);
+  font-size: 44px;
+  line-height: 1;                /* номер не занимает лишнюю высоту */
+  color: var(--sun);
+}
+
+.steps h3 {
+  margin: 4px 0 4px;
+  font-size: 20px;
+}
+
+.steps p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- 9. СТРАНИЦА УСЛУГ ---------- */
+.service-group {
+  margin-bottom: 30px;
+}
+
+.service-group:last-child {
+  margin-bottom: 0;
+}
+
+.service-group h2 {
+  border-left: 5px solid var(--sun);
+  padding-left: 12px;
+}
+
+.service-list .card {
+  background: var(--sky);
+}
+
+/* ---------- 10. КОМАНДА ---------- */
+.person {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Круглое фото руководителя.
+   object-fit: cover обрезает фото по кругу без искажений */
+.avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 3px var(--azure);   /* тонкое лазурное кольцо */
+  flex-shrink: 0;                        /* фото не сжимается */
+}
+
+.person-info {
+  flex: 1;
+  min-width: 240px;
+}
+
+.person-info h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.role {
+  color: var(--azure);
+  font-weight: 700;
+  margin: 2px 0 6px;
+}
+
+/* ---------- 11. КОНТАКТЫ ---------- */
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-telegram {
+  background: #229ed9;
+  color: var(--white);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #083b1f;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #d6e4ec;
+}
+
+.contact-list strong {
+  display: inline-block;
+  min-width: 150px;
+  color: var(--sea);
+}
+
+/* ---------- 12. ВОПРОСЫ И ОТВЕТЫ ----------
+   Тег <details> раскрывается по клику сам, без JavaScript. */
+details {
+  background: var(--sky);
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  max-width: 800px;
+}
+
+summary {
+  font-weight: 700;
+  color: var(--sea);
+  cursor: pointer;
+}
+
+details p {
+  margin: 6px 0 0;
+}
+
+/* ---------- 13. ПРИЗЫВ НАПИСАТЬ ---------- */
+.cta {
+  background: var(--sea);
+  color: var(--white);
+  text-align: center;
+  padding: 36px 16px;
+}
+
+.cta h2 {
+  color: var(--white);
+  margin-top: 0;
+}
+
+.cta .buttons {
+  justify-content: center;
+}
+
+/* ---------- 14. ПОДВАЛ ---------- */
+.footer {
+  background: #083a56;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 18px 0;
+  font-size: 15px;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: var(--white);
+}
+
+/* ---------- 15. ДОСТУПНОСТЬ ----------
+   Видимая рамка, когда по сайту ходят клавишей Tab */
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 3px;
+}
+
+/* ---------- 16. АДАПТИВНОСТЬ: НОУТБУК И ТЕЛЕФОН ----------
+   @media — правила, которые включаются только на экранах
+   определённой ширины. Всё выше — для больших экранов,
+   здесь — поправки для меньших.                           */
+
+/* Ноутбуки и планшеты (до 1024px) */
+@media (max-width: 1024px) {
+  .section {
+    padding: 28px 0;
+  }
+}
+
+/* Телефоны (до 700px) */
+@media (max-width: 700px) {
+  body {
+    font-size: 16px;
+  }
+
+  /* Логотип и меню друг под другом, по центру */
+  .header .container {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .menu a {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .page-title {
+    padding-top: 18px;
+  }
+
+  .section {
+    padding: 24px 0;
+  }
+
+  .wave {
+    height: 28px;
+    margin-top: 16px;
+  }
+
+  /* Кнопки растягиваются на всю ширину — по ним легче попасть пальцем */
+  .buttons .btn,
+  .contact-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  /* Фото и текст о руководителе — друг под другом, по центру */
+  .person {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .person-info {
+    min-width: 0;
+  }
+
+  /* В контактах подпись над значением */
+  .contact-list strong {
+    display: block;
+    min-width: 0;
+  }
+
+  .cta {
+    padding: 28px 16px;
+  }
+
+  .footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

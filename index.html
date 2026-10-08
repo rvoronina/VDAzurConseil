@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VD Concierge Аzur — помощь русскоязычным на Лазурном берегу</title>
+  <meta name="description" content="Консалтинг на Лазурном берегу для русскоязычных: документы, жильё, переводы, открытие и сопровождение бизнеса.">
+
+  <!-- Шрифты Google Fonts (с поддержкой кириллицы) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Prata&display=swap" rel="stylesheet">
+
+  <!-- Общий файл стилей для всех страниц -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== ШАПКА: одинаковая на всех страницах =====
+       Меняется только класс "active" — он подсвечивает текущую страницу -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo"><span>VD</span> Concierge Аzur</a>
+      <nav>
+        <ul class="menu">
+        <li><a href="index.html" class="active">Главная</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="faq.html">Вопросы</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+    <section class="hero">
+      <div class="container">
+        <h1>Помогаем русскоязычным обустроиться, жить и вести бизнес на Лазурном берегу</h1>
+        <p>Документы, жильё, переводы, открытие компании. Берём задачу целиком и доводим до результата, а вы общаетесь с нами на родном языке.</p>
+        <div class="buttons">
+          <!-- ЗАМЕНИТЕ USERNAME на ваш ник в Telegram -->
+          <a class="btn btn-main" href="https://t.me/Concierge_azur_bot">Написать в Telegram</a>
+          <a class="btn btn-light" href="services.html">Посмотреть услуги</a>
+        </div>
+      </div>
+    <!-- Волна: рисунок SVG, переход от синего к белому -->
+    <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,35 L1440,70 L0,70 Z" fill="#ffffff"/>
+    </svg>
+    </section>
+
+    <!-- ===== ТРИ ГРУППЫ КЛИЕНТОВ =====
+         Ссылка services.html#move ведёт на страницу услуг
+         и сразу прокручивает к блоку с id="move" -->
+    <section class="section">
+      <div class="container">
+        <h2>С чем вы к нам приходите</h2>
+        <p class="lead">Выберите свою ситуацию, и мы покажем, чем можем помочь.</p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Вы переезжаете во Францию</h3>
+            <p>Поможем с документами, найдём жильё, переведём бумаги и сопроводим в учреждения с первого дня.</p>
+            <a href="services.html#move">Услуги для переезда</a>
+          </div>
+
+          <div class="card">
+            <h3>Вы уже живёте во Франции</h3>
+            <p>Разберёмся со сложной ситуацией: письма из администраций, продление документов, споры, бытовые вопросы.</p>
+            <a href="services.html#life">Помощь на месте</a>
+          </div>
+
+          <div class="card">
+            <h3>У вас бизнес или вы хотите его открыть</h3>
+            <p>Регистрация компании, решение проблем, подбор персонала, Telegram-боты и сайты для вашего дела.</p>
+            <a href="services.html#business">Услуги для бизнеса</a>
+          </div>
+
+          <div class="card">
+            <h3>У вас строительная компания</h3>
+            <p>Кадры, документы по безопасности, подготовка к проверкам, контракты и разрешения на строительство в Монако.</p>
+            <a href="services.html#construction">Услуги для строителей</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== КАК МЫ РАБОТАЕМ (номера ставит CSS) ===== -->
+    <section class="section section-sky">
+      <div class="container">
+        <h2>Как мы работаем</h2>
+        <p class="lead">Понятный порядок без сюрпризов.</p>
+
+        <ol class="steps">
+          <li>
+            <h3>Вы пишете нам</h3>
+            <p>В Telegram, WhatsApp или по почте. Коротко описываете, что нужно.</p>
+          </li>
+          <li>
+            <h3>Обсуждаем задачу</h3>
+            <p>Задаём уточняющие вопросы и объясняем, как всё устроено во Франции.</p>
+          </li>
+          <li>
+            <h3>Предлагаем план и цену</h3>
+            <p>Вы заранее знаете, что мы сделаем, в какие сроки и за какую сумму.</p>
+          </li>
+          <li>
+            <h3>Делаем под ключ</h3>
+            <p>Берём работу на себя и держим вас в курсе на каждом этапе.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== ПОЧЕМУ МЫ ===== -->
+    <section class="section">
+      <div class="container">
+        <h2>Почему нам доверяют</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Французское образование</h3>
+            <p>Руководители компании учились во Франции: юриспруденция и управление бизнесом.</p>
+          </div>
+          <div class="card">
+            <h3>Говорим на вашем языке</h3>
+            <p>Работаем с клиентами из Украины, Беларуси, Грузии, Армении и других стран СНГ.</p>
+          </div>
+          <div class="card">
+            <h3>Знаем регион</h3>
+            <p>Базируемся на Лазурном берегу, работаем также в Париже, Тулузе и других городах Франции.</p>
+          </div>
+        </div>
+        <p><a href="about.html">Подробнее о команде</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== ПРИЗЫВ НАПИСАТЬ ===== -->
+  <section class="cta">
+    <h2>Расскажите о вашей ситуации</h2>
+    <p>Ответим на русском и предложим, с чего начать.</p>
+    <div class="buttons">
+      <!-- ЗАМЕНИТЕ USERNAME на ваш ник в Telegram -->
+      <a class="btn btn-main" href="https://t.me/Concierge_azur_bot">Написать в Telegram</a>
+      <a class="btn btn-light" href="contacts.html">Все контакты</a>
+    </div>
+  </section>
+
+  <!-- ===== ПОДВАЛ: одинаковый на всех страницах ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 VD Concierge Аzur. Лазурный берег, Париж, Тулуза</p>
+      <p><a href="contacts.html">Контакты</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

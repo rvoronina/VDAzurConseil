@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вопросы и ответы — VD Azur Conseil</title>
+  <meta name="description" content="Ответы на частые вопросы о работе VD Azur Conseil.">
+
+  <!-- Шрифты Google Fonts (с поддержкой кириллицы) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Prata&display=swap" rel="stylesheet">
+
+  <!-- Общий файл стилей для всех страниц -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== ШАПКА: одинаковая на всех страницах =====
+       Меняется только класс "active" — он подсвечивает текущую страницу -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo"><span>VD</span> Azur Conseil</a>
+      <nav>
+        <ul class="menu">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="faq.html" class="active">Вопросы</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <div class="container">
+        <h1>Вопросы и ответы</h1>
+        <p>Собрали то, о чём нас спрашивают чаще всего.</p>
+      </div>
+    <!-- Волна: рисунок SVG, переход от синего к белому -->
+    <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,35 L1440,70 L0,70 Z" fill="#ffffff"/>
+    </svg>
+    </section>
+
+    <!-- Чтобы добавить вопрос: скопируйте блок от <details> до </details> -->
+    <section class="section">
+      <div class="container">
+        <details>
+          <summary>Сколько стоят ваши услуги?</summary>
+          <p>Стоимость зависит от задачи. После короткого разговора мы называем точную цену и сроки до начала работы.</p>
+        </details>
+        <details>
+          <summary>Сколько времени занимает оформление документов?</summary>
+          <p>Сроки зависят от типа документа и загруженности учреждений. Мы заранее объясняем, чего ожидать, и сообщаем о каждом изменении статуса.</p>
+        </details>
+        <details>
+          <summary>Можно ли работать с вами удалённо?</summary>
+          <p>Да. Многие вопросы мы решаем дистанционно, а на встречи в учреждения при необходимости едем вместе с вами или вместо вас.</p>
+        </details>
+        <details>
+          <summary>В каких городах вы работаете?</summary>
+          <p>На всём Лазурном берегу, а также в Париже и Тулузе. В другие города Франции выезжаем при условии оплаты транспортных расходов. Строительные компании сопровождаем и в Монако.</p>
+        </details>
+        <details>
+          <summary>С клиентами из каких стран вы работаете?</summary>
+          <p>С русскоязычными клиентами из Украины, Беларуси, Грузии, Армении и других стран СНГ.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== ПРИЗЫВ НАПИСАТЬ ===== -->
+  <section class="cta">
+    <h2>Расскажите о вашей ситуации</h2>
+    <p>Ответим на русском и предложим, с чего начать.</p>
+    <div class="buttons">
+      <!-- ЗАМЕНИТЕ USERNAME на ваш ник в Telegram -->
+      <a class="btn btn-main" href="https://t.me/Concierge_azur_bot">Написать в Telegram</a>
+      <a class="btn btn-light" href="contacts.html">Все контакты</a>
+    </div>
+  </section>
+
+  <!-- ===== ПОДВАЛ: одинаковый на всех страницах ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 VD Azur Conseil. Лазурный берег, Париж, Тулуза</p>
+      <p><a href="contacts.html">Контакты</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

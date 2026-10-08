@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>О нас — VD Azur Conseil</title>
+  <meta name="description" content="Команда VD Azur Conseil: юрист и специалист по управлению бизнесом с французским образованием.">
+
+  <!-- Шрифты Google Fonts (с поддержкой кириллицы) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Prata&display=swap" rel="stylesheet">
+
+  <!-- Общий файл стилей для всех страниц -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== ШАПКА: одинаковая на всех страницах =====
+       Меняется только класс "active" — он подсвечивает текущую страницу -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo"><span>VD</span> Azur Conseil</a>
+      <nav>
+        <ul class="menu">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="about.html" class="active">О нас</a></li>
+        <li><a href="faq.html">Вопросы</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <div class="container">
+        <h1>О нас</h1>
+        <p>Мы сами прошли путь переезда во Францию и знаем, с чем сталкиваются наши клиенты.</p>
+      </div>
+    <!-- Волна: рисунок SVG, переход от синего к белому -->
+    <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,35 L1440,70 L0,70 Z" fill="#ffffff"/>
+    </svg>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Чем мы занимаемся</h2>
+        <!-- ЗАМЕНИТЕ этот текст своей историей: когда основана компания,
+             в каких городах работаете, сколько клиентов уже помогли -->
+        <p class="lead">VD Azur Conseil помогает русскоязычным людям и компаниям на Лазурном берегу. Мы берём на себя документы, переговоры с учреждениями и организационные вопросы, чтобы вы могли спокойно заниматься жизнью и делом.</p>
+      </div>
+    </section>
+
+    <section class="section section-sky">
+      <div class="container">
+        <h2>Руководители компании</h2>
+
+        <div class="grid">
+          <div class="card">
+            <div class="person">
+              <img class="avatar" src="images/sofiya.jpg" alt="Sofiya Denisova">
+              <div class="person-info">
+                <h3>Sofiya Denisova</h3>
+                <p class="role">Юрист компании</p>
+                <p>Окончила во Франции две магистратуры: Master en droit (право) и Master en contrôle de gestion (управленческий контроль). Имеет степень PhD en droit de la construction et de l'immobilier (строительное право и право недвижимости).</p>
+                <p>Отвечает за юридическую сторону: документы, статусы, переписку с администрациями и защиту интересов клиентов, а также за юридическое сопровождение строительных компаний.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="person">
+              <img class="avatar" src="images/marharyta.jpg" alt="Marharyta Voronina">
+              <div class="person-info">
+                <h3>Marharyta Voronina</h3>
+                <p class="role">Управление и развитие бизнеса</p>
+                <p>Master Management et Administration des Entreprises (Франция), высшее образование по промышленному и гражданскому строительству (Украина). Ведёт бизнес-направление и работу со строительными компаниями: открытие компаний, администрирование, подбор персонала.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== ПРИЗЫВ НАПИСАТЬ ===== -->
+  <section class="cta">
+    <h2>Расскажите о вашей ситуации</h2>
+    <p>Ответим на русском и предложим, с чего начать.</p>
+    <div class="buttons">
+      <!-- ЗАМЕНИТЕ USERNAME на ваш ник в Telegram -->
+      <a class="btn btn-main" href="https://t.me/Concierge_azur_bot">Написать в Telegram</a>
+      <a class="btn btn-light" href="contacts.html">Все контакты</a>
+    </div>
+  </section>
+
+  <!-- ===== ПОДВАЛ: одинаковый на всех страницах ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 VD Azur Conseil. Лазурный берег, Париж, Тулуза</p>
+      <p><a href="contacts.html">Контакты</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
