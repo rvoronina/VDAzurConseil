@@ -660,3 +660,6 @@ summary:focus-visible {
 .section-dark .steps p { color: rgba(255,255,255,.78); }
 .grid-4 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 @media (max-width: 700px) { .hero-logo { display: none; } }
+
+/* Логотип в шапке — круглый герб (Logo 1) */
+.logo img { width: 50px; height: 50px; background: none; padding: 0; box-shadow: none; border-radius: 50%; }
