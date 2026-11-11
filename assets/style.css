@@ -1,0 +1,662 @@
+/* =========================================================
+   VD Azur Conseil — общий файл стилей для ВСЕХ страниц.
+   Каждая страница подключает его строкой:
+   <link rel="stylesheet" href="style.css">
+   Поменяли что-то здесь — изменилось на всём сайте.
+   Версия: компактная (меньше пустого пространства).
+   ========================================================= */
+
+/* ---------- 1. ЦВЕТА И ШРИФТЫ (меняйте здесь) ----------
+   :root — место для "переменных". Пишем цвет один раз,
+   а дальше используем его как var(--sea).               */
+:root {
+  --sea: #13305c;        /* тёмно-синий, как на логотипе — шапка, заголовки */
+  --azure: #1c86b8;      /* лазурный — ссылки, акценты */
+  --sun: #d4a84b;        /* золото логотипа — главные кнопки */
+  --sky: #eef6fa;        /* очень светлый голубой — фон блоков */
+  --white: #ffffff;
+  --text: #22323d;       /* основной цвет текста */
+  --muted: #5b6d78;      /* второстепенный текст */
+
+  --font-title: "Prata", Georgia, serif;          /* шрифт заголовков */
+  --font-text: "Manrope", Arial, sans-serif;      /* шрифт текста */
+}
+
+/* ---------- 2. БАЗОВЫЕ НАСТРОЙКИ ---------- */
+* {
+  box-sizing: border-box;  /* размеры блоков считаются вместе с отступами */
+}
+
+body {
+  margin: 0;                       /* убираем отступ браузера по краям */
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.4;                /* расстояние между строками (было 1.6) */
+  color: var(--text);
+  background: var(--white);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  color: var(--sea);
+  line-height: 1.15;
+  margin: 0 0 8px;                 /* убираем большие отступы браузера */
+}
+
+p {
+  margin: 0 0 10px;                /* абзацы ближе друг к другу */
+}
+
+ul, ol {
+  margin: 0 0 10px;
+}
+
+a {
+  color: var(--azure);
+}
+
+img {
+  max-width: 100%;   /* картинки не вылезают за экран телефона */
+  height: auto;
+}
+
+/* Обёртка: ограничивает ширину контента и ставит его по центру */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;      /* auto слева и справа = по центру */
+  padding: 0 16px;
+}
+
+/* ---------- 3. ШАПКА И МЕНЮ ---------- */
+.header {
+  background: var(--sea);
+}
+
+/* display: flex ставит элементы в ряд.
+   justify-content: space-between разносит их по краям.
+   flex-wrap: wrap разрешает переносить на новую строку на телефоне. */
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 24px;
+  color: var(--white);
+  text-decoration: none;   /* убираем подчёркивание ссылки */
+}
+
+.logo span {
+  color: var(--sun);       /* "VD" другим цветом */
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;        /* убираем точки у списка */
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 6px 12px;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.15);  /* подсветка при наведении */
+}
+
+/* Пункт меню текущей страницы (класс active ставим вручную) */
+.menu a.active {
+  background: var(--white);
+  color: var(--sea);
+}
+
+/* ---------- 4. ГЛАВНЫЙ ЭКРАН (hero) ---------- */
+.hero {
+  background: var(--sea);
+  color: var(--white);
+  padding: 36px 0 0;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(32px, 5vw, 54px);  /* размер подстраивается под экран */
+  max-width: 800px;
+  margin: 0 0 12px;
+}
+
+.hero p {
+  font-size: 19px;
+  max-width: 620px;
+  opacity: 0.9;
+}
+
+/* Волна под главным экраном — картинка SVG прямо в HTML */
+.wave {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin-top: 24px;
+}
+
+/* Заголовок внутренних страниц (короче, чем на главной) */
+.page-title {
+  background: var(--sea);
+  color: var(--white);
+  padding: 24px 0 0;
+}
+
+.page-title h1 {
+  color: var(--white);
+  font-size: clamp(30px, 4vw, 44px);
+  margin: 0 0 6px;
+}
+
+.page-title p {
+  max-width: 640px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* ---------- 5. КНОПКИ ---------- */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-main {
+  background: var(--sun);
+  color: var(--sea);
+}
+
+.btn-main:hover {
+  background: #f0b94f;
+}
+
+.btn-light {
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+.btn-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- 6. СЕКЦИИ ---------- */
+.section {
+  padding: 32px 0;
+}
+
+.section-sky {
+  background: var(--sky);   /* секция с голубым фоном */
+}
+
+.section h2 {
+  font-size: clamp(26px, 3.5vw, 36px);
+  margin: 0 0 12px;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 0 18px;
+}
+
+/* ---------- 7. СЕТКА КАРТОЧЕК ----------
+   display: grid раскладывает карточки по колонкам.
+   auto-fit + minmax: колонок столько, сколько влезает
+   (на компьютере 3, на телефоне 1).                     */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 18px;
+  border-top: 4px solid var(--azure);   /* цветная полоска сверху */
+}
+
+.card h3 {
+  font-size: 22px;
+  margin: 0 0 6px;
+}
+
+.card p {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.card p:last-child {
+  margin-bottom: 0;         /* без лишнего отступа внизу карточки */
+}
+
+.card a {
+  font-weight: 700;
+}
+
+/* ---------- 8. ШАГИ "КАК МЫ РАБОТАЕМ" ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: step;           /* запускаем счётчик для номеров */
+}
+
+.steps li {
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);        /* выводим номер шага */
+  display: block;
+  font-family: var(--font-title);
+  font-size: 44px;
+  line-height: 1;                /* номер не занимает лишнюю высоту */
+  color: var(--sun);
+}
+
+.steps h3 {
+  margin: 4px 0 4px;
+  font-size: 20px;
+}
+
+.steps p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- 9. СТРАНИЦА УСЛУГ ---------- */
+.service-group {
+  margin-bottom: 30px;
+}
+
+.service-group:last-child {
+  margin-bottom: 0;
+}
+
+.service-group h2 {
+  border-left: 5px solid var(--sun);
+  padding-left: 12px;
+}
+
+.service-list .card {
+  background: var(--sky);
+}
+
+/* ---------- 10. КОМАНДА ---------- */
+.person {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Круглое фото руководителя.
+   object-fit: cover обрезает фото по кругу без искажений */
+.avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 3px var(--azure);   /* тонкое лазурное кольцо */
+  flex-shrink: 0;                        /* фото не сжимается */
+}
+
+.person-info {
+  flex: 1;
+  min-width: 240px;
+}
+
+.person-info h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.role {
+  color: var(--azure);
+  font-weight: 700;
+  margin: 2px 0 6px;
+}
+
+/* ---------- 11. КОНТАКТЫ ---------- */
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-telegram {
+  background: #229ed9;
+  color: var(--white);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #083b1f;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #d6e4ec;
+}
+
+.contact-list strong {
+  display: inline-block;
+  min-width: 150px;
+  color: var(--sea);
+}
+
+/* ---------- 12. ВОПРОСЫ И ОТВЕТЫ ----------
+   Тег <details> раскрывается по клику сам, без JavaScript. */
+details {
+  background: var(--sky);
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  max-width: 800px;
+}
+
+summary {
+  font-weight: 700;
+  color: var(--sea);
+  cursor: pointer;
+}
+
+details p {
+  margin: 6px 0 0;
+}
+
+/* ---------- 13. ПРИЗЫВ НАПИСАТЬ ---------- */
+.cta {
+  background: var(--sea);
+  color: var(--white);
+  text-align: center;
+  padding: 36px 16px;
+}
+
+.cta h2 {
+  color: var(--white);
+  margin-top: 0;
+}
+
+.cta .buttons {
+  justify-content: center;
+}
+
+/* ---------- 14. ПОДВАЛ ---------- */
+.footer {
+  background: #0c2242;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 18px 0;
+  font-size: 15px;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: var(--white);
+}
+
+/* ---------- 15. ДОСТУПНОСТЬ ----------
+   Видимая рамка, когда по сайту ходят клавишей Tab */
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 3px;
+}
+
+/* ---------- 16. АДАПТИВНОСТЬ: НОУТБУК И ТЕЛЕФОН ----------
+   @media — правила, которые включаются только на экранах
+   определённой ширины. Всё выше — для больших экранов,
+   здесь — поправки для меньших.                           */
+
+/* Ноутбуки и планшеты (до 1024px) */
+@media (max-width: 1024px) {
+  .section {
+    padding: 28px 0;
+  }
+}
+
+/* Телефоны (до 700px) */
+@media (max-width: 700px) {
+  body {
+    font-size: 16px;
+  }
+
+  /* Логотип и меню друг под другом, по центру */
+  .header .container {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .menu a {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .page-title {
+    padding-top: 18px;
+  }
+
+  .section {
+    padding: 24px 0;
+  }
+
+  .wave {
+    height: 28px;
+    margin-top: 16px;
+  }
+
+  /* Кнопки растягиваются на всю ширину — по ним легче попасть пальцем */
+  .buttons .btn,
+  .contact-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  /* Фото и текст о руководителе — друг под другом, по центру */
+  .person {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .person-info {
+    min-width: 0;
+  }
+
+  /* В контактах подпись над значением */
+  .contact-list strong {
+    display: block;
+    min-width: 0;
+  }
+
+  .cta {
+    padding: 28px 16px;
+  }
+
+  .footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   17. ДОПОЛНЕНИЯ ОБЪЕДИНЁННОЙ ВЕРСИИ
+   ========================================================= */
+
+/* Логотип-картинка в шапке */
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo img {
+  width: 44px; height: 44px; object-fit: contain;
+  background: var(--white); border-radius: 50%; padding: 4px;
+  box-shadow: 0 0 0 2px var(--sun);
+}
+
+/* Правая часть шапки: меню + переключатель языка */
+.header-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.lang-switch { display: flex; gap: 4px; }
+.lang-switch a {
+  padding: 4px 9px; border: 1px solid rgba(255,255,255,.35); border-radius: 8px;
+  color: var(--white); text-decoration: none; font-size: 13px; font-weight: 700;
+}
+.lang-switch a:hover { background: rgba(255,255,255,.15); }
+.lang-switch a.current { background: var(--sun); border-color: var(--sun); color: var(--sea); }
+
+/* Главный экран: текст + логотип справа */
+.hero-grid { display: grid; grid-template-columns: 1.4fr .6fr; gap: 36px; align-items: center; }
+.hero-logo {
+  background: var(--white); border-radius: 24px; padding: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.35), 0 0 0 3px rgba(212,168,75,.6);
+}
+.hero-logo img { display: block; width: 100%; }
+.badge {
+  display: inline-block; padding: 5px 14px; border: 1px solid var(--sun);
+  color: #f0cf84; border-radius: 99px; font-size: 14px; margin-bottom: 14px;
+}
+.hero-note { margin-top: 14px; font-size: 15px; color: #f0cf84; }
+.hero-note::before { content: "✓ "; }
+
+/* Видео */
+.video-box {
+  max-width: 860px; margin: 0 auto; aspect-ratio: 16 / 9;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 16px 40px rgba(19,48,92,.35), 0 0 0 3px rgba(212,168,75,.5);
+}
+.video-box iframe { width: 100%; height: 100%; border: 0; display: block; }
+.center { text-align: center; }
+.center .lead { margin-left: auto; margin-right: auto; }
+
+/* Тёмная секция */
+.section-dark { background: var(--sea); color: var(--white); }
+.section-dark h2, .section-dark h3 { color: var(--white); }
+.section-dark .lead { color: rgba(255,255,255,.8); }
+.section-dark .card { background: rgba(255,255,255,.06); border-top-color: var(--sun); }
+.section-dark .card p { color: rgba(255,255,255,.8); }
+
+/* Партнёрская сеть — список с галочками */
+.ticks { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px 20px; }
+.ticks li { padding-left: 26px; position: relative; }
+.ticks li::before { content: "✓"; position: absolute; left: 0; color: var(--sun); font-weight: 700; }
+
+.partner-box {
+  margin-top: 22px; padding: 20px; border-radius: 12px;
+  border: 1px dashed var(--sun); display: flex; gap: 16px;
+  align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+.partner-box p { margin: 0; max-width: 680px; }
+
+/* Карточки команды на главной */
+.team-mini .person { align-items: center; }
+.team-mini .avatar { width: 96px; height: 96px; }
+
+/* Обычная карточка на голубом фоне */
+.section-sky .card { box-shadow: 0 6px 18px rgba(19,48,92,.08); }
+
+/* Кнопка-ссылка внутри светлых секций */
+.btn-outline { border: 2px solid var(--sea); color: var(--sea); }
+.btn-outline:hover { background: var(--sky); }
+
+/* Плавающая кнопка Telegram */
+.float-tg {
+  position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  background: #229ed9; color: #fff; padding: 12px 20px; border-radius: 99px;
+  font-weight: 700; text-decoration: none; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+/* Подвал: ссылки */
+.footer a { margin-left: 14px; }
+.footer a:first-child { margin-left: 0; }
+
+/* Правовая страница */
+.legal h2 { margin-top: 26px; }
+.legal { max-width: 820px; }
+.todo { background: #fff3c4; padding: 0 4px; border-radius: 4px; }
+
+/* Выбор языка на корневой странице */
+.lang-choice { min-height: 100vh; display: grid; place-items: center; background: var(--sea); color: #fff; text-align: center; padding: 20px; }
+.lang-choice img { width: 160px; background: #fff; border-radius: 20px; padding: 14px; margin-bottom: 18px; }
+.lang-choice h1 { color: #fff; }
+.lang-choice .buttons { justify-content: center; }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-logo { max-width: 240px; }
+}
+@media (max-width: 700px) {
+  .header-right { flex-direction: column; gap: 6px; }
+  .float-tg { right: 10px; bottom: 10px; padding: 10px 16px; }
+  .partner-box .btn { width: 100%; text-align: center; }
+  .footer a { margin: 0 7px; }
+}
+
+/* Исправления */
+.logo span.logo-text { color: var(--white); }
+.logo span.logo-text span { color: var(--sun); }
+.section-dark .steps p { color: rgba(255,255,255,.78); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+@media (max-width: 700px) { .hero-logo { display: none; } }

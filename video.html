@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VD Azur Conseil — video</title>
+<style>
+:root{--navy:#0a1f3d;--navy2:#122c52;--azur:#1fa5d6;--gold:#d4a84b;--gold2:#f0cf84}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;overflow:hidden;font-family:'Segoe UI',Inter,system-ui,sans-serif;color:#fff}
+#stage{position:relative;width:100%;height:100%;overflow:hidden;
+  background:radial-gradient(circle at 80% 15%,rgba(31,165,214,.4),transparent 45%),
+             radial-gradient(circle at 10% 95%,rgba(212,168,75,.3),transparent 42%),
+             linear-gradient(135deg,var(--navy),var(--navy2))}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6% 8%;opacity:0;pointer-events:none;transition:opacity .35s}
+.scene.on{opacity:1}
+.scene>*{opacity:0;transform:translateY(24px)}
+.scene.on>*{animation:in .4s forwards}
+.scene.on>*:nth-child(2){animation-delay:.12s}
+.scene.on>*:nth-child(3){animation-delay:.25s}
+.scene.on>*:nth-child(4){animation-delay:.38s}
+@keyframes in{to{opacity:1;transform:none}}
+.ico{font-size:clamp(3rem,11vw,6rem);margin-bottom:2vh;filter:drop-shadow(0 8px 20px rgba(0,0,0,.4))}
+h2{font-family:Georgia,'Playfair Display',serif;font-size:clamp(1.5rem,5.4vw,3.2rem);line-height:1.2;max-width:900px}
+h2 em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+p{margin-top:2vh;font-size:clamp(.95rem,2.5vw,1.45rem);color:#c9d6ea;max-width:760px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:3vh}
+.tags span{padding:8px 18px;border:1px solid var(--gold);border-radius:99px;color:var(--gold2);font-size:clamp(.8rem,2vw,1.1rem);opacity:0;animation:in .3s forwards}
+.on .tags span:nth-child(1){animation-delay:.45s}.on .tags span:nth-child(2){animation-delay:.65s}.on .tags span:nth-child(3){animation-delay:.85s}.on .tags span:nth-child(4){animation-delay:1.05s}
+.logo{background:#fff;border-radius:22px;padding:12px;width:min(46vw,300px);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 4px rgba(212,168,75,.5)}
+.logo img{display:block;width:100%;border-radius:12px}
+.team{display:flex;gap:26px;justify-content:center;margin-bottom:2vh}
+.team img{width:min(20vw,110px);height:min(20vw,110px);border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.btn{display:inline-block;margin-top:3vh;padding:14px 32px;border-radius:99px;font-weight:700;background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--navy);font-size:clamp(.95rem,2.4vw,1.3rem);box-shadow:0 8px 28px rgba(212,168,75,.5)}
+.contact{margin-top:2vh;color:#c9d6ea;font-size:clamp(.8rem,2vw,1.1rem);line-height:1.7}
+/* controls */
+#bar{position:absolute;left:0;bottom:0;height:5px;width:100%;background:rgba(255,255,255,.15)}
+#bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+#ctl{position:absolute;right:12px;bottom:14px;display:flex;gap:8px}
+#ctl button{background:rgba(0,0,0,.45);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:1rem}
+#ctl button:hover{background:var(--gold);color:var(--navy)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="scenes"></div>
+  <div id="bar"><i id="fill"></i></div>
+  <div id="ctl"><button id="snd" title="Sound">🔇</button><button id="pp" title="Pause">❚❚</button><button id="rp" title="Replay">↺</button></div>
+</div>
+
+<script>
+const D = 2500; // ms per scene (8 scenes = 20 s)
+const L = {
+ru:{
+ s1:["Франция может быть <em>простой</em>","VD Azur Conseil — консалтинг, право и администрация для русскоязычных во Франции."],
+ s2:["Письма, префектура, договоры, банки…","Знакомо? Незнакомый язык и система отнимают время и нервы.",["Документы","Жильё","Счета","Страховки"]],
+ s3:["🧳","Переезд и <em>документы</em>","Документы для пребывания, поиск жилья с проверкой договора, переводы и сопровождение в учреждения, банки и к врачу."],
+ s4:["🏛️","Жизнь <em>во Франции</em>","Разберём письма из администраций, сопроводим в префектуру и страховую, поможем со счетами, школой и детским садом."],
+ s5:["💼","Бизнес <em>«под ключ»</em>","Откроем компанию, решим текущие административные вопросы, подберём персонал."],
+ s6:["🏗️","Строительным компаниям <em>и Монако</em>","HR, охрана труда и безопасность, подготовка к проверкам, контракты и специальные разрешения для объектов."],
+ s7:["🤖","Цифровые <em>решения</em>","Telegram-боты для заявок с Google Таблицами, корпоративные сайты и всё под ваш запрос — а ещё забота о вашей машине."],
+ s8:["Вы работаете — <em>мы заботимся</em>","Мы делаем вашу жизнь комфортной.","Написать в Telegram","Пн–Пт, 9:00–18:00"]},
+fr:{
+ s1:["La France peut être <em>simple</em>","VD Azur Conseil — conseil, droit et administration pour les russophones en France."],
+ s2:["Courriers, préfecture, contrats, banques…","Ça vous parle ? La langue et le système prennent du temps et de l'énergie.",["Documents","Logement","Comptes","Assurances"]],
+ s3:["🧳","Installation et <em>documents</em>","Dossiers de séjour, recherche de logement avec vérification du contrat, traductions et accompagnement partout."],
+ s4:["🏛️","La vie <em>en France</em>","Nous lisons vos courriers, vous accompagnons en préfecture et assurance, pour comptes, école et crèche."],
+ s5:["💼","Création d'entreprise <em>clé en main</em>","Création de société, démarches administratives courantes, recrutement."],
+ s6:["🏗️","Entreprises du BTP <em>et Monaco</em>","RH, santé-sécurité, préparation aux contrôles, contrats et autorisations spécifiques."],
+ s7:["🤖","Solutions <em>digitales</em>","Bots Telegram avec Google Sheets, sites d'entreprise, et tout selon vos besoins — même l'entretien de votre voiture."],
+ s8:["Vous travaillez — <em>nous nous occupons de tout</em>","Nous rendons votre vie confortable.","Écrire sur Telegram","Lun–Ven, 9h00–18h00"]},
+en:{
+ s1:["France can be <em>simple</em>","VD Azur Conseil — consulting, legal and administrative support for Russian speakers in France."],
+ s2:["Letters, prefecture, contracts, banks…","Sound familiar? A new language and system cost you time and nerves.",["Documents","Housing","Accounts","Insurance"]],
+ s3:["🧳","Relocation & <em>documents</em>","Residence paperwork, housing search with contract checks, translations and accompaniment everywhere."],
+ s4:["🏛️","Life <em>in France</em>","We decode administrative letters, go with you to prefectures and insurers, and help with accounts, schools and nurseries."],
+ s5:["💼","Turnkey <em>business setup</em>","Company formation, day-to-day administration, recruitment."],
+ s6:["🏗️","Construction companies <em>& Monaco</em>","HR, health & safety, inspection prep, contracts and site-specific permits."],
+ s7:["🤖","Digital <em>solutions</em>","Telegram bots with Google Sheets, corporate websites and anything on request — even care for your car."],
+ s8:["You work — <em>we take care</em>","We make your life comfortable.","Message us on Telegram","Mon–Fri, 9:00–18:00"]}
+};
+
+/* sound: synthesized with Web Audio, starts only after the user taps the speaker button */
+let ac=null, snd=false, master;
+const CH=[[220,261.63,329.63],[174.61,220,261.63],[261.63,329.63,392],[196,246.94,293.66]];
+function audioInit(){ if(ac) return; ac=new (window.AudioContext||window.webkitAudioContext)(); master=ac.createGain(); master.gain.value=.55; master.connect(ac.destination); }
+function tone(f,t,dur,type,vol,a){ const o=ac.createOscillator(),g=ac.createGain(); o.type=type; o.frequency.value=f; o.connect(g); g.connect(master);
+  g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol,t+a); g.gain.exponentialRampToValueAtTime(.0001,t+dur); o.start(t); o.stop(t+dur+.05); }
+function whoosh(t){ const n=ac.sampleRate*.6, b=ac.createBuffer(1,n,ac.sampleRate), d=b.getChannelData(0); for(let i=0;i<n;i++) d[i]=Math.random()*2-1;
+  const s=ac.createBufferSource(); s.buffer=b; const f=ac.createBiquadFilter(); f.type='bandpass'; f.Q.value=1.2; f.frequency.setValueAtTime(400,t); f.frequency.exponentialRampToValueAtTime(2800,t+.5);
+  const g=ac.createGain(); g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.12,t+.2); g.gain.exponentialRampToValueAtTime(.0001,t+.55); s.connect(f); f.connect(g); g.connect(master); s.start(t); }
+function sfx(i){ if(!snd||!ac) return; const t=ac.currentTime+.02, ch=CH[(i>>1)%4];
+  whoosh(t);
+  if(i%2===0){ ch.forEach(f=>tone(f,t,5.2,'sine',.07,1.2)); tone(ch[0]/2,t,5.2,'sine',.13,.4); }
+  ch.forEach((f,k)=>tone(f*2,t+.15+k*.28,.9,'triangle',.07,.02));
+  if(i===7){ [784,987.77,1318.5].forEach((f,k)=>tone(f,t+.9+k*.15,1.4,'sine',.06,.02)); } }
+
+const root = document.getElementById('scenes'), fill = document.getElementById('fill'), pp = document.getElementById('pp');
+let lang='ru', idx=0, playing=true, t0=0, elapsed=0, n=8, raf;
+
+function build(){
+  const s=L[lang], h=[];
+  h.push(`<div class="scene"><div class="logo"><img src="images/monogram.jpg" alt="VD Azur Conseil"></div><h2 style="margin-top:3vh">${s.s1[0]}</h2><p>${s.s1[1]}</p></div>`);
+  h.push(`<div class="scene"><div class="ico">📄</div><h2>${s.s2[0]}</h2><p>${s.s2[1]}</p><div class="tags">${s.s2[2].map(x=>`<span>${x}</span>`).join('')}</div></div>`);
+  for(const k of ['s3','s4','s5','s6','s7']) h.push(`<div class="scene"><div class="ico">${s[k][0]}</div><h2>${s[k][1]}</h2><p>${s[k][2]}</p></div>`);
+  h.push(`<div class="scene"><div class="team"><img src="images/sofiya.jpg" alt=""><img src="images/marharyta.jpg" alt=""></div><h2>${s.s8[0]}</h2><p>${s.s8[1]}</p><div><a class="btn">✈ ${s.s8[2]}</a><div class="contact">@Concierge_azur_bot · vdazurconseil@gmail.com<br>${s.s8[3]}</div></div></div>`);
+  root.innerHTML=h.join('');
+  document.documentElement.lang=lang;
+}
+function show(i){
+  idx=i; [...root.children].forEach((e,j)=>e.classList.toggle('on',j===i));
+}
+function tick(now){
+  if(playing){
+    elapsed+=now-t0;
+    if(elapsed>=D){ elapsed=0; show((idx+1)%n); sfx(idx); }
+    fill.style.width=((idx+elapsed/D)/n*100)+'%';
+  }
+  t0=now; raf=requestAnimationFrame(tick);
+}
+function start(){ build(); elapsed=0; show(0); }
+pp.onclick=()=>{playing=!playing; pp.textContent=playing?'❚❚':'▶'; if(snd&&ac) playing?ac.resume():ac.suspend();};
+document.getElementById('snd').onclick=e=>{ snd=!snd; e.target.textContent=snd?'🔊':'🔇'; if(snd){ audioInit(); ac.resume(); if(playing) sfx(idx);} else if(ac) ac.suspend(); };
+document.getElementById('rp').onclick=()=>{elapsed=0; show(0); playing=true; pp.textContent='❚❚'; if(snd&&ac){ ac.resume(); sfx(0);} };
+window.addEventListener('message',e=>{ if(e.data&&e.data.lang&&L[e.data.lang]&&e.data.lang!==lang){ lang=e.data.lang; const i=idx; build(); show(i);} });
+try{ const q=new URLSearchParams(location.search).get('lang'); const s=q||localStorage.getItem('lang'); if(L[s]) lang=s; }catch(e){}
+start(); requestAnimationFrame(now=>{t0=now;tick(now)});
+</script>
+</body>
+</html>

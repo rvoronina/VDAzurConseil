@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VD Azur Conseil — Côte d'Azur · Monaco</title>
+  <meta name="description" content="Accompagnement administratif, création d'entreprise et services BTP sur la Côte d'Azur et à Monaco. Русский · Français · English.">
+  <link rel="alternate" hreflang="ru" href="ru/index.html">
+  <link rel="alternate" hreflang="fr" href="fr/index.html">
+  <link rel="alternate" hreflang="en" href="en/index.html">
+  <link rel="icon" href="images/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>
+    (function(){
+      var l=null; try{ l=localStorage.getItem('lang'); }catch(e){}
+      if(!l){ var n=(navigator.language||'fr').slice(0,2).toLowerCase();
+        l = (['ru','uk','be','kk','ka','hy'].indexOf(n)>=0) ? 'ru' : (n==='fr' ? 'fr' : (n==='en' ? 'en' : 'fr')); }
+      if(['ru','fr','en'].indexOf(l)>=0) location.replace(l + '/index.html');
+    })();
+  </script>
+</head>
+<body>
+  <div class="lang-choice">
+    <div>
+      <img src="images/monogram.jpg" alt="VD Azur Conseil">
+      <h1>VD Azur Conseil</h1>
+      <p>Côte d'Azur · Monaco · Paris · Toulouse</p>
+      <div class="buttons">
+        <a class="btn btn-main" href="ru/index.html">Русский</a>
+        <a class="btn btn-main" href="fr/index.html">Français</a>
+        <a class="btn btn-main" href="en/index.html">English</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
