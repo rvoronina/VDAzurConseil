@@ -663,3 +663,20 @@ summary:focus-visible {
 
 /* Логотип в шапке — круглый герб (Logo 1) */
 .logo img { width: 50px; height: 50px; background: none; padding: 0; box-shadow: none; border-radius: 50%; }
+
+/* Отзывы */
+.reviews { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; align-items: start; }
+.review {
+  margin: 0; background: var(--white); border-radius: 12px; padding: 22px 22px 18px;
+  border-left: 5px solid var(--sun); box-shadow: 0 6px 18px rgba(19,48,92,.08); position: relative;
+}
+.review::before {
+  content: "“"; position: absolute; top: -6px; right: 16px;
+  font-family: var(--font-title); font-size: 72px; color: var(--sun); opacity: .35; line-height: 1;
+}
+.review blockquote { margin: 0 0 12px; }
+.review blockquote p { margin: 0 0 10px; color: var(--text); }
+.review figcaption strong { display: block; color: var(--sea); }
+.review figcaption span { font-size: 14px; color: var(--muted); }
+.rev-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+@media (max-width: 800px) { .reviews { grid-template-columns: 1fr; } }
